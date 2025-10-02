@@ -1,0 +1,137 @@
+/* Ensure :root is at the top with no preceding rules */
+:root {
+    --primary-color: #0088cc;
+    --primary-dark: #006699;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-color: #1a1a1a;
+    --text-light: #6c757d;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f0ff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-card {
+    background-color: var(--card-bg, #ffffff); /* Fallback for compatibility */
+    border-radius: var(--radius, 12px); /* Fallback for compatibility */
+    box-shadow: var(--shadow, 0 4px 20px rgba(0, 0, 0, 0.08));
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color, #0088cc), #00a2e8);
+}
+
+.logo {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 24px;
+    background: linear-gradient(135deg, var(--primary-color, #0088cc), #00a2e8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.2);
+}
+
+.logo-text {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.5px;
+    line-height: 1;
+}
+
+h1 {
+    color: var(--text-color, #1a1a1a);
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.description {
+    color: var(--text-light, #6c757d);
+    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.telegram-widget-container {
+    margin: 24px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    margin-top: 28px;
+    font-size: 14px;
+    color: var(--text-light, #6c757d);
+    font-weight: 400;
+}
+
+/* Animation for the card */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-card {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 32px 24px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+}
